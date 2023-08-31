@@ -39,8 +39,8 @@ except pymysql.Error as e:
     print(f"Tabela não foi criada -> {e}")
     pass
 
-@app.route('/login', methods=['GET','POST'])    
-def login():
+@app.route('/register', methods=['GET','POST'])    
+def register():
     SECRET_KEY = 'P4$$w0rds'
     if request.method == 'POST':
         nome = request.form.get('nome')
@@ -58,7 +58,8 @@ def login():
         usuario_existente = cursor.fetchone()
 
         if usuario_existente:
-            print("Usuário com o mesmo nome ou email já existe.")
+            variavel = "Usuário com o mesmo nome ou email já existe."
+            return render_template('register.html', variavel=variavel)
         else:
             insert_query = "INSERT INTO usuarios (nome, email, senha) VALUES (%s, %s, %s)"
             data = (nome, email, senha_criptografada)
@@ -66,7 +67,7 @@ def login():
             connection.commit()
             print('Usuário inserido com sucesso!')
 
-    return render_template('login.html')
+    return render_template('register.html')
 
 if __name__ == '__main__':
     app.run(debug=True)
