@@ -1,10 +1,9 @@
 import cryptocode
+import os
 
-chave = "423338233093093"
-mensagem = "Esta eh a minha mensagem! :)"
+chave = os.getenv('SECRET_KEY')
+mensagem = "J9jvIlBxRg==*JzFKEaR"
 
-MensagemCriptografada = cryptocode.encrypt(mensagem, chave)
-print("Sua mensagem criptografada: " + MensagemCriptografada)
 
-MensagemDescriptografada = cryptocode.decrypt(MensagemCriptografada, chave)
+MensagemDescriptografada = cryptocode.decrypt(mensagem, chave)
 print("Sua mensagem descriptografada: " + MensagemDescriptografada)

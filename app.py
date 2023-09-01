@@ -3,15 +3,14 @@ import pymysql
 import os
 import cryptocode
 
-
 app = Flask(__name__)
 
 # Configurações do banco de dados
 db_config = {
     'host': 'localhost',
     'user': 'root',
-    'password': 'root',
-    'db': 'projeto_Flask',
+    'password': '',
+    'db': 'projeto_venda',
     'cursorclass': pymysql.cursors.DictCursor
 }
 
@@ -41,7 +40,7 @@ except pymysql.Error as e:
 
 @app.route('/register', methods=['GET','POST'])    
 def register():
-    SECRET_KEY = 'P4$$w0rds'
+    SECRET_KEY = os.getenv('SECRET_KEY')
     if request.method == 'POST':
         nome = request.form.get('nome')
         email = request.form.get('email')
