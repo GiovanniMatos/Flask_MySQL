@@ -16,13 +16,46 @@
             text-align: center;
             font-family: 'Ubuntu', sans-serif;
         }
+
+        header {
+            margin-top: 30px;
+        }
+
+        .login-card {
+            margin-top: 30vh;
+            position: relative;
+            display: inline-flex;
+            box-shadow: 5px 10px 18px #888888;
+            padding-left: 20px;
+            padding-right: 20px;
+            padding-bottom: 5px;
+            padding-top: 5px
+        }
+
+        .login-card img {
+            width: 20vh;
+            height: 20vh;
+        }
+
+        #respostaN {
+            color: rgb(255, 0, 119);
+            margin-top: 15px;
+            text-shadow: 2px 0px 7px rgba(0, 0, 0, 0.51);
+        }
+
+        #respostaP {
+            color: rgb(0, 255, 98);
+            margin-top: 15px;
+            text-shadow: 2px 0px 7px rgba(0, 0, 0, 0.51);
+        }
     </style>
 
     <header>
         <h1>Cadastrar</h1>
-        <p>{{ variavel }}</p>
     </header>
+
     <div class="login-card">
+        <img src="{{url_for('static', filename='flask_logo.png')}}" />
         <form action="{{ url_for('register')}}" method="post">
             <label for="nome"><b>Nome</b></label><br>
             <input type="text" name="nome" id="nome" placeholder="Digite seu e-mail" maxlength="20" required><br>
@@ -30,10 +63,12 @@
             <input type="email" name="email" id="email" placeholder="Digite seu e-mail" maxlength="30" required><br>
             <label for="password"><b>Senha</b></label><br>
             <input type="password" name="password" id="password" placeholder="Sua senha" maxlength="20" required><br>
-            <button type="submit">Registrar</button>
+            <button type="submit">Registrar</button><br>
+            <p>Já tem uma conta?</p>
+            <a href="{{ url_for('login') }}">Entrar</a>
         </form><br>
-        <a href="{{ url_for('login') }}">Entrar</a>
     </div>
-    
+    <p id='respostaN'>{{ variavel }}</p>
+    <p id='respostaP'>{{ variavel_P }}</p>
 </body>
 </html>

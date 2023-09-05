@@ -68,7 +68,7 @@ def register():
             cursor.execute(insert_query, data)
             connection.commit()
             print('Usuário inserido com sucesso!')
-            return render_template('register.html', variavel=variavel)
+            return render_template('register.html', variavel_P=variavel)
 
     return render_template('register.html')
 
