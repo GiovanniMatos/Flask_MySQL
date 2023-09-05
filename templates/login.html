@@ -8,19 +8,19 @@
 </head>
 <body>
     <header>
-        <h1>Cadastro</h1>
+        <h1>Entrar</h1>
+        <p>{{ variavel }}</p>
     </header>
     <div class="login-card">
         <form action="{{ url_for('login')}}" method="post">
             <label for="nome"><b>Nome</b></label><br>
             <input type="text" name="nome" id="nome" placeholder="Digite seu e-mail" required><br>
-            <label for="email"><b>E-mail</b></label><br>
-            <input type="email" name="email" id="email" placeholder="Digite seu e-mail" required><br>
             <label for="password"><b>Senha</b></label><br>
             <input type="password" name="password" id="password" placeholder="Sua senha" required><br>
             <button type="submit">Registrar</button>
         </form><br>
-        <a href="{{ url_for('login') }}">Entrar</a>
+        <p>Não tem usuário?</p>
+        <a href="{{ url_for('register') }}">Cadastrar</a>
     </div>
     
 </body>
