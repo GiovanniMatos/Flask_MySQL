@@ -7,6 +7,17 @@
     <title>Login</title>
 </head>
 <body>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+        *{
+            padding: 0;
+            margin: 0;
+            text-align: center;
+            font-family: 'Ubuntu', sans-serif;
+        }
+    </style>
+
     <header>
         <h1>Entrar</h1>
         <p>{{ variavel }}</p>
@@ -17,7 +28,7 @@
             <input type="text" name="nome" id="nome" placeholder="Digite seu e-mail" required><br>
             <label for="password"><b>Senha</b></label><br>
             <input type="password" name="password" id="password" placeholder="Sua senha" required><br>
-            <button type="submit">Registrar</button>
+            <button type="submit">Entrar</button>
         </form><br>
         <p>Não tem usuário?</p>
         <a href="{{ url_for('register') }}">Cadastrar</a>
