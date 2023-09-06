@@ -7,3 +7,5 @@ Cadastro - A senha adicionada no formulário é criptografada e enviada ao Banco
 Login - A senha colocada no formulário é comparada com a senha do Banco de Dados que será descriptografada para fazer a verificação e também se a senha corresponde ao usuário.
 ![image](https://github.com/GiovanniMatos/Flask_MySQL/assets/99231397/179a04f8-3fea-47b7-bb44-c439ed6567b0)
 
+Caso a senha seja esquecida, o arquivo "crypto.py" irá retornar a senha descriptografada.
+![image](https://github.com/GiovanniMatos/Flask_MySQL/assets/99231397/f1868ffe-aa2a-43dc-97cd-0646830de61d)
