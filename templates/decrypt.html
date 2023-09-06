@@ -6,13 +6,40 @@
     <title>Descriptografar</title>
 </head>
 <body>
-    <form action="{{ url_for('decrypt')}}" method="post">
-        <label for="password"><b>Senha Criptografada</b></label><br>
-        <input type="password" name="password" id="password" placeholder="Sua senha" required><br>
-        <button type="submit">Descriptografar</button><br>
-    </form>
-    <br>
-    <p><b>Senha Descriptografada: </b></p>
-    <p>{{ resultado }}</p>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+        *{
+            padding: 0;
+            margin: 0;
+            text-align: center;
+            font-family: 'Ubuntu', sans-serif;
+        }
+
+        .card {
+            margin-top: 30px;
+        }
+        .card img {
+            margin-top: 20px;
+            width: 20vh;
+            height: 20vh;
+        }
+
+        #resultado{
+            color: #000000;
+            text-shadow: 2px 0px 7px rgba(0, 0, 0, 0.51);
+        }
+    </style>
+    <div class="card">
+        <form action="{{ url_for('decrypt')}}" method="post">
+            <label for="password"><b>Senha Criptografada</b></label><br>
+            <input type="password" name="password" id="password" placeholder="Sua senha" required><br>
+            <button type="submit">Descriptografar</button><br>
+        </form>
+        <br>
+        <p><b>Senha Descriptografada: </b></p>
+        <p id="resultado">{{ resultado }}</p>
+        <img src="{{url_for('static', filename='pngwing.com.png')}}" />
+    </div>
 </body>
 </html>
