@@ -88,6 +88,7 @@ def login():
         if user and cryptocode.decrypt(user['senha'], SECRET_KEY) == senha:
             print(f"Usuário Logado {nome}")
             print(user)
+            return """<h1>Usuário Logado</h1>"""
         else: 
             variavel = "Credenciais inválidas"
             return render_template('login.html', variavel=variavel)
