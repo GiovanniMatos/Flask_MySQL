@@ -9,3 +9,6 @@ Login - A senha colocada no formulário é comparada com a senha do Banco de Dad
 
 Caso a senha seja esquecida, o arquivo "crypto.py" irá retornar a senha descriptografada.
 ![image](https://github.com/GiovanniMatos/Flask_MySQL/assets/99231397/f1868ffe-aa2a-43dc-97cd-0646830de61d)
+
+Para testar a segurança da sua senha, poderá usar o script de Brute Force, teste wordlists mais utilizadas entre hackers para simular uma tentativa real de quebra de senha.
+![image](https://github.com/GiovanniMatos/Flask_MySQL/assets/99231397/8a052000-661b-4485-8200-64a36aeec046)
