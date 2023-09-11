@@ -116,7 +116,7 @@ def add_markers():
 
 def create_map_with_markers(data):
     # Crie um mapa Folium
-    m = folium.Map(location=[0, 0], zoom_start=2)
+    m = folium.Map(location=[0, 0], zoom_start=3)
 
     # Adicione marcadores com base nos dados do arquivo JSON
     for item in data:
@@ -124,7 +124,6 @@ def create_map_with_markers(data):
             lat, lon = item['lat'], item['lon']
             marker = folium.Marker([lat, lon])
             marker.add_to(m)
-
     return m    
 
 if __name__ == '__main__':
