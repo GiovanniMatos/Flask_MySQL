@@ -1,3 +1,4 @@
+# pip install python-dotenv folium flask cryptocode
 from flask import Flask, render_template, request, url_for, redirect
 import pymysql
 import folium
@@ -18,7 +19,7 @@ db_config = {
 
 try:
     connection = pymysql.connect(**db_config)
-    print("------- CONECTADO -------")
+    print("[+]------- CONECTADO -------[+]")
 except pymysql.Error as e:
     print(f"Erro ao conectar ao banco de dados: {e}")
 
