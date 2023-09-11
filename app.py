@@ -1,5 +1,7 @@
-from flask import Flask, render_template, request, url_for
+from flask import Flask, render_template, request, url_for, redirect
 import pymysql
+import folium
+import json
 import os
 import cryptocode
 
@@ -9,8 +11,8 @@ app = Flask(__name__)
 db_config = {
     'host': 'localhost',
     'user': 'root',
-    'password': '',
-    'db': 'projeto_venda',
+    'password': 'root',
+    'db': 'projeto_flask',
     'cursorclass': pymysql.cursors.DictCursor
 }
 
@@ -86,14 +88,44 @@ def login():
         conn.close()
 
         if user and cryptocode.decrypt(user['senha'], SECRET_KEY) == senha:
-            print(f"Usuário Logado {nome}")
+            print(f"[+] Usuário Logado: {nome}")
             print(user)
-            return """<h1>Usuário Logado</h1>"""
+            return redirect(url_for('mapa'))
         else: 
             variavel = "Credenciais inválidas"
             return render_template('login.html', variavel=variavel)
 
-    return render_template('login.html')       
+    return render_template('login.html')   
+
+# Rota principal para exibir o mapa
+@app.route('/mapa')
+def mapa():
+    return render_template('mapa.html')
+
+# Rota para lidar com o upload do arquivo JSON e adicionar marcadores ao mapa
+@app.route('/add_markers', methods=['POST'])
+def add_markers():
+    if 'json_file' in request.files:
+        json_file = request.files['json_file']
+        if json_file.filename != '':
+            # Lê o arquivo JSON e adiciona marcadores ao mapa
+            map_data = json.load(json_file)
+            map_with_markers = create_map_with_markers(map_data)
+            return map_with_markers._repr_html_()
+    return redirect(url_for('mapa'))
+
+def create_map_with_markers(data):
+    # Crie um mapa Folium
+    m = folium.Map(location=[0, 0], zoom_start=2)
+
+    # Adicione marcadores com base nos dados do arquivo JSON
+    for item in data:
+        if 'lat' in item and 'lon' in item:
+            lat, lon = item['lat'], item['lon']
+            marker = folium.Marker([lat, lon])
+            marker.add_to(m)
+
+    return m    
 
 if __name__ == '__main__':
     app.run(debug=True)
