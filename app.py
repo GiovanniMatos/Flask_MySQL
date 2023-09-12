@@ -12,8 +12,8 @@ app = Flask(__name__)
 db_config = {
     'host': 'localhost',
     'user': 'root',
-    'password': '',
-    'db': 'projeto_venda',
+    'password': 'root',
+    'db': 'projeto_flask',
     'cursorclass': pymysql.cursors.DictCursor
 }
 
@@ -91,7 +91,7 @@ def login():
         if user and cryptocode.decrypt(user['senha'], SECRET_KEY) == senha:
             print(f"[+] Usuário Logado: {nome}")
             print(user)
-            return redirect(url_for('mapa'))
+            return render_template('mapa.html')
         else: 
             variavel = "Credenciais inválidas"
             return render_template('login.html', variavel=variavel)
@@ -101,10 +101,11 @@ def login():
 # Rota principal para exibir o mapa
 @app.route('/mapa')
 def mapa():
-    return render_template('mapa.html')
+    return redirect(url_for('login'))
+    #return render_template('mapa.html')
 
 # Rota para lidar com o upload do arquivo JSON e adicionar marcadores ao mapa
-@app.route('/add_markers', methods=['POST'])
+@app.route('/add_markers', methods=['GET','POST'])
 def add_markers():
     if 'json_file' in request.files:
         json_file = request.files['json_file']
@@ -113,7 +114,8 @@ def add_markers():
             map_data = json.load(json_file)
             map_with_markers = create_map_with_markers(map_data)
             return map_with_markers._repr_html_()
-    return redirect(url_for('mapa'))
+    return render_template('mapa.html')
+    #return redirect(url_for('mapa'))
 
 def create_map_with_markers(data):
     # Crie um mapa Folium
