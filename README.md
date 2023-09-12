@@ -15,6 +15,8 @@ Caso a senha seja esquecida, o arquivo "crypto.py" irá retornar a senha descrip
 
 Para testar a segurança da sua senha, poderá usar o script de Brute Force, teste wordlists mais utilizadas entre hackers para simular uma tentativa real de quebra de senha.
 
-![image](https://github.com/GiovanniMatos/Flask_MySQL/assets/99231397/e31b4a1b-3024-4ae9-a6b6-f26a5378f597)
-![image](https://github.com/GiovanniMatos/Flask_MySQL/assets/99231397/94c21543-fc72-46b8-bbca-aa98be13bf4c)
+![image](https://github.com/GiovanniMatos/Flask_MySQL/assets/99231397/19f940ed-9419-41d5-b4e4-9a710c0a7b13)
+![image](https://github.com/GiovanniMatos/Flask_MySQL/assets/99231397/0c936067-1811-48d1-8e5b-049207a476b9)
+
+
 
