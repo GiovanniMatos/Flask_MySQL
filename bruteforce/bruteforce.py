@@ -21,8 +21,9 @@ for senha in wordlist:
     if "Adicionar layer" not in response:
         os.system("clear || cls")
         print('Senha não encontrada \n')
-    else:
+    else: 
         os.system("clear || cls")
         print(f"\n\033[32m[+]\033[0;0m {host}")
         print(f"\033[32m[+]\033[0;0m Usuário - \033[32m{usuario}\033[0;0m \n\033[32m[+]\033[0;0m Senha encontrada - \033[32m{senha}\033[0;0m")
         print("\n\n\n")
+        break
