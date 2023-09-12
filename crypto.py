@@ -15,6 +15,7 @@ def decrypt():
         resultado = senha_descriptografada
 
         return render_template('decrypt.html', resultado=resultado)
+    
     return render_template('decrypt.html')
     
 
