@@ -1,7 +1,7 @@
 import requests
 import time
 import os
-print("xxxxxxx Brute Force teste xxxxxxx")
+print("------- Brute Force teste -------")
 usuario = input("Usuário: ")
 wordlist = open(".\wordlist.txt", "r").readlines()
 wordlist = [x.replace("\n", "") for x in wordlist]
