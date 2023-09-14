@@ -135,7 +135,7 @@ def add_data():
             m.save('templates/map_with_data.html')
             return render_template('map_with_data.html')
 
-    return render_template('map.html')
+    return render_template('mapa.html')
 
 if __name__ == '__main__':
     app.run(debug=True)
