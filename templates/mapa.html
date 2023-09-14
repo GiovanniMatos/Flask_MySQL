@@ -10,6 +10,7 @@
             padding: 0;
             margin: 0;
             font-family: 'Ubuntu', sans-serif;
+            text-align: center;
         }
 
         h1 {
@@ -73,6 +74,7 @@
     <div id="map"></div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.js"></script>
     {{ folium_map | safe }}
+    
     <script>
         function toggleSidebar() {
             var sidebar = document.getElementById("sidebar");
