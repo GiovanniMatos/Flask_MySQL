@@ -4,14 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add layer</title>
-</head>
-<body>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
         *{
             padding: 0;
             margin: 0;
-            text-align: center;
             font-family: 'Ubuntu', sans-serif;
         }
 
@@ -24,14 +21,67 @@
             padding-right: 5px;
             padding-left: 5px;
         }
+
+        .sidebar {
+            height: 100%;
+            width: 250px;
+            position: fixed;
+            top: 0;
+            left: -250px;
+            background-color: #333;
+            overflow-x: hidden;
+            transition: 0.3s;
+            padding-top: 60px;
+            color: white;
+        }
+
+        .sidebar a {
+            padding: 10px 15px;
+            text-decoration: none;
+            font-size: 20px;
+            color: white;
+            display: block;
+            transition: 0.2s;
+        }
+
+        .sidebar a:hover {
+            background-color: #555;
+        }
+
+        .openbtn {
+            position: fixed;
+            top: 10px;
+            left: 10px;
+            cursor: pointer;
+            background-color: #333;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+        }
+
+        .openbtn:hover {
+            background-color: #555;
+        }
     </style>
-    <h1>Adicionar layer (json)</h1><br>
-    <form action="/add_markers" method="POST" enctype="multipart/form-data">
+</head>
+<body>
+    <h1>Adicionar layer (json)</h1>
+    <form action="/add_data" method="POST" enctype="multipart/form-data">
         <input type="file" name="json_file" accept=".json"><br><br>
         <input type="submit" value="Adicionar Layer">
     </form>
     <div id="map"></div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.js"></script>
     {{ folium_map | safe }}
+    <script>
+        function toggleSidebar() {
+            var sidebar = document.getElementById("sidebar");
+            if (sidebar.style.left === "0px") {
+                sidebar.style.left = "-250px";
+            } else {
+                sidebar.style.left = "0px";
+            }
+        }
+    </script>
 </body>
 </html>
