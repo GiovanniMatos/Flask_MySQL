@@ -13,7 +13,7 @@ Caso a senha seja esquecida, o arquivo "crypto.py" irá retornar a senha descrip
 
 ![image](https://github.com/GiovanniMatos/Flask_MySQL/assets/99231397/f1868ffe-aa2a-43dc-97cd-0646830de61d)
 
-O mapa poderá ser acessado apenas após o Login, caso seja adicionada a rota pare ele na URL, será redirecionada ao Login. Nele há opção de adicionar linhas que mostram a distância de um ponto a outro, círculo para marcação do local, marcadores, etc.
+O mapa poderá ser acessado apenas após o Login, caso seja adicionada a rota para ele na URL, será redirecionada ao Login. Nele há opção de adicionar linhas que mostram a distância de um ponto a outro, círculo para marcação do local, marcadores, etc.
 
 ![image](https://github.com/GiovanniMatos/Flask_MySQL/assets/99231397/2a48e6ff-0374-492e-8a41-133747bfcc6c)
 
