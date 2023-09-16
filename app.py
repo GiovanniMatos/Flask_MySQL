@@ -2,6 +2,7 @@
 from flask import Flask, render_template, request, url_for, redirect
 import pymysql
 import folium
+from folium.plugins import MarkerCluster, Draw
 import json
 import os
 import cryptocode
@@ -105,29 +106,36 @@ def mapa():
     #return render_template('mapa.html')
 
 # Rota para lidar com o upload do arquivo JSON e adicionar marcadores ao mapa
-@app.route('/add_markers', methods=['GET','POST'])
-def add_markers():
+@app.route('/add_data', methods=['POST'])
+def add_data():
+    # Verifique se o arquivo JSON foi enviado no formulário
     if 'json_file' in request.files:
         json_file = request.files['json_file']
         if json_file.filename != '':
-            # Lê o arquivo JSON e adiciona marcadores ao mapa
-            map_data = json.load(json_file)
-            map_with_markers = create_map_with_markers(map_data)
-            return map_with_markers._repr_html_()
+            # Lê o arquivo JSON
+            data = json.load(json_file)
+            
+            # Crie um mapa Folium
+            m = folium.Map(location=[0, 0], zoom_start=3)
+
+            # Crie um cluster de marcadores para agrupar os marcadores
+            marker_cluster = MarkerCluster().add_to(m)
+
+            # Adicione marcadores com base nos dados do arquivo JSON
+            for item in data:
+                if 'lat' in item and 'lon' in item:
+                    lat, lon = item['lat'], item['lon']
+                    folium.Marker([lat, lon]).add_to(marker_cluster)
+
+            # Adicione a funcionalidade de desenhar linhas no mapa
+            draw = Draw()
+            draw.add_to(m)
+
+            # Renderize o mapa e retorne para a página
+            m.save('templates/map_with_data.html')
+            return render_template('map_with_data.html')
+
     return render_template('mapa.html')
-    #return redirect(url_for('mapa'))
-
-def create_map_with_markers(data):
-    # Crie um mapa Folium
-    m = folium.Map(location=[0, 0], zoom_start=3)
-
-    # Adicione marcadores com base nos dados do arquivo JSON
-    for item in data:
-        if 'lat' in item and 'lon' in item:
-            lat, lon = item['lat'], item['lon']
-            marker = folium.Marker([lat, lon])
-            marker.add_to(m)
-    return m    
 
 if __name__ == '__main__':
     app.run(debug=True)
