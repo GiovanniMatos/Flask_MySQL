@@ -12,8 +12,8 @@ app = Flask(__name__)
 db_config = {
     'host': 'localhost',
     'user': 'root',
-    'password': 'root',
-    'db': 'projeto_flask',
+    'password': '',
+    'db': 'projeto_venda',
     'cursorclass': pymysql.cursors.DictCursor
 }
 
