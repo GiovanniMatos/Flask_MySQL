@@ -50,9 +50,3 @@ Para testar a segurança da sua senha, poderá usar o script de Brute Force, tes
 ![image](https://github.com/GiovanniMatos/Flask_MySQL/assets/99231397/19f940ed-9419-41d5-b4e4-9a710c0a7b13)
 ![image](https://github.com/GiovanniMatos/Flask_MySQL/assets/99231397/0c936067-1811-48d1-8e5b-049207a476b9)
 
-
-# Título do Projeto
-
-Uma breve descrição sobre o que esse projeto faz e para quem ele é
-
-
