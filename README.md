@@ -2,8 +2,7 @@
 
 ## Instalação
 
-Instale meu projeto Flask
-Linux
+<b>Linux</b>
 ```bash
   pip install virtualenv &&
   python -m venv venv &&
@@ -15,7 +14,7 @@ Linux
   cd Flask_MySQL &&
   pip install Flask python-dotenv pymysql folium cryptocode
 ```
-Windows
+<b>Windows</b>
 ```bash
   mkdir Projeto_Flask
   cd Projeto_Flask
