@@ -16,8 +16,8 @@
 ```
 <b>Windows</b>
 ```bash
-  mkdir Projeto_Flask
-  cd Projeto_Flask
+  mkdir Projeto_MySQL
+  cd Projeto_MySQL
   pip install virtualenv 
   python -m venv venv 
   cd venv 
