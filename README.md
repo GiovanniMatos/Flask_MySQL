@@ -15,7 +15,6 @@
   git clone https://github.com/GiovanniMatos/Flask_MySQL.git &&
   cd Flask_MySQL &&
   pip install Flask python-dotenv pymysql folium cryptocode &&
-  cd ..
 ```
 <b>Windows</b>
 ```bash
@@ -29,9 +28,12 @@
   git clone https://github.com/GiovanniMatos/Flask_MySQL.git 
   cd Flask_MySQL 
   pip install Flask python-dotenv pymysql folium cryptocode
-  cd ..
 ```
-
+<b>VSCode</b><br>
+```bash
+  cd Flask_MySQL\Flask_MySQL
+  code .
+```
 Cadastro - A senha adicionada no formulário é criptografada e enviada ao Banco de Dados.
 
 ![image](https://github.com/GiovanniMatos/Flask_MySQL/assets/99231397/b0d319ad-74dd-41c3-a9cb-b23d92e0f79d)
