@@ -1,5 +1,34 @@
 # Flask_MySQL
 
+## Instalação
+
+Instale meu projeto Flask
+Linux
+```bash
+  pip install virtualenv &&
+  python -m venv venv &&
+  cd venv &&
+  cd bin &&
+  source activate &&
+  cd .. && cd .. &&
+  git clone https://github.com/GiovanniMatos/Flask_MySQL.git &&
+  cd Flask_MySQL &&
+  pip install Flask python-dotenv pymysql folium cryptocode
+```
+Windows
+```bash
+  mkdir Projeto_Flask
+  cd Projeto_Flask
+  pip install virtualenv 
+  python -m venv venv 
+  cd venv 
+  Scripts\activate.bat
+  cd ..
+  git clone https://github.com/GiovanniMatos/Flask_MySQL.git 
+  cd Flask_MySQL 
+  pip install Flask python-dotenv pymysql folium cryptocode
+```
+
 Cadastro - A senha adicionada no formulário é criptografada e enviada ao Banco de Dados.
 
 ![image](https://github.com/GiovanniMatos/Flask_MySQL/assets/99231397/b0d319ad-74dd-41c3-a9cb-b23d92e0f79d)
@@ -21,4 +50,10 @@ Para testar a segurança da sua senha, poderá usar o script de Brute Force, tes
 
 ![image](https://github.com/GiovanniMatos/Flask_MySQL/assets/99231397/19f940ed-9419-41d5-b4e4-9a710c0a7b13)
 ![image](https://github.com/GiovanniMatos/Flask_MySQL/assets/99231397/0c936067-1811-48d1-8e5b-049207a476b9)
+
+
+# Título do Projeto
+
+Uma breve descrição sobre o que esse projeto faz e para quem ele é
+
 
