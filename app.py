@@ -14,7 +14,7 @@ db_config = {
     'host': 'localhost',
     'user': 'root',
     'password': '',
-    'db': 'projeto_venda',
+    'db': 'projeto_flask',
     'cursorclass': pymysql.cursors.DictCursor
 }
 
@@ -92,7 +92,7 @@ def login():
         if user and cryptocode.decrypt(user['senha'], SECRET_KEY) == senha:
             print(f"[+] Usuário Logado: {nome}")
             print(user)
-            return render_template('mapa.html')
+            return render_template('mapa.html', nome=nome)
         else: 
             variavel = "Credenciais inválidas"
             return render_template('login.html', variavel=variavel)
