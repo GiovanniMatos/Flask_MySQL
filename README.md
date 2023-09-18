@@ -4,6 +4,8 @@
 
 <b>Linux</b>
 ```bash
+  mkdir Flask_MySQL
+  cd Flask_MySQL
   pip install virtualenv &&
   python -m venv venv &&
   cd venv &&
@@ -12,12 +14,13 @@
   cd .. && cd .. &&
   git clone https://github.com/GiovanniMatos/Flask_MySQL.git &&
   cd Flask_MySQL &&
-  pip install Flask python-dotenv pymysql folium cryptocode
+  pip install Flask python-dotenv pymysql folium cryptocode &&
+  cd ..
 ```
 <b>Windows</b>
 ```bash
-  mkdir Projeto_MySQL
-  cd Projeto_MySQL
+  mkdir Flask_MySQL
+  cd Flask_MySQL
   pip install virtualenv 
   python -m venv venv 
   cd venv 
@@ -26,6 +29,7 @@
   git clone https://github.com/GiovanniMatos/Flask_MySQL.git 
   cd Flask_MySQL 
   pip install Flask python-dotenv pymysql folium cryptocode
+  cd ..
 ```
 
 Cadastro - A senha adicionada no formulário é criptografada e enviada ao Banco de Dados.
