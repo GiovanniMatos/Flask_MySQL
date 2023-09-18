@@ -5,8 +5,8 @@
 Instale meu projeto Flask
 
 ```bash
-  git clone https://github.com/GiovanniMatos/Flask_MySQL.git
-  cd Flask_MySQL
+  git clone https://github.com/GiovanniMatos/Flask_MySQL.git &&
+  cd Flask_MySQL &&
   pip install Flask python-dotenv pymysql folium cryptocode
 ```
     
