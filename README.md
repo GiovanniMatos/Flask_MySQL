@@ -4,7 +4,7 @@
 
 <b>Linux</b>
 ```bash
-  mkdir Flask_MySQL && cd Flask_MySQL && git clone https://github.com/GiovanniMatos/Flask_MySQL.git && cd Flask_MySQL && pip install Flask python-dotenv pymysql folium cryptocode && cd .. && python -m venv venv && pip install virtualenv && cd venv && cd bin && source activate && cd .. && cd .. &&
+  git clone https://github.com/GiovanniMatos/Flask_MySQL.git && cd Flask_MySQL && python -m venv venv && pip install virtualenv && pip install Flask python-dotenv pymysql folium cryptocode && cd venv/bin && source activate && cd ..
 ```
 <b>Windows</b>
 ```bash
