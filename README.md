@@ -2,23 +2,30 @@
 
 ## Instalação
 
-<b>Linux</b>
+### Linux
 ```bash
   sudo apt install -y python3 python3-pip python3.10-venv
 ```
 ```bash
-  git clone https://github.com/GiovanniMatos/Flask_MySQL.git && cd Flask_MySQL && pip3 install virtualenv && python3 -m venv venv && source venv/bin/activate && cd .. && pip3 install Flask python-dotenv pymysql folium cryptocode
+  git clone https://github.com/GiovanniMatos/Flask_MySQL.git && cd Flask_MySQL && pip3 install Flask python-dotenv pymysql folium cryptocode
 ```
-<b>Windows</b>
+###### Virtualenv
+```bash
+  pip3 install virtualenv && python3 -m venv venv && source venv/bin/activate
+```
+### Windows
 ```bash
   git clone https://github.com/GiovanniMatos/Flask_MySQL.git
   cd Flask_MySQL
+  pip install Flask python-dotenv pymysql folium cryptocode
+```
+###### Virtualenv
+```bash
   pip install virtualenv
   python -m venv venv
   venv\Scripts\activate
-  pip install Flask python-dotenv pymysql folium cryptocode
 ```
-<b>VSCode</b><br>
+### VSCode
 ```bash
   code .
 ```
