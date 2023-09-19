@@ -6,15 +6,16 @@
 ```bash
   mkdir Flask_MySQL &&
   cd Flask_MySQL &&
+  git clone https://github.com/GiovanniMatos/Flask_MySQL.git &&
+  cd Flask_MySQL &&
+  pip install Flask python-dotenv pymysql folium cryptocode &&
+  cd .. &&
   pip install virtualenv &&
   python -m venv venv &&
   cd venv &&
   cd bin &&
   source activate &&
   cd .. && cd .. &&
-  git clone https://github.com/GiovanniMatos/Flask_MySQL.git &&
-  cd Flask_MySQL &&
-  pip install Flask python-dotenv pymysql folium cryptocode
 ```
 <b>Windows</b>
 ```bash
