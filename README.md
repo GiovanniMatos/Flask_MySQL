@@ -31,7 +31,6 @@
 ```
 <b>VSCode</b><br>
 ```bash
-  cd Flask_MySQL\Flask_MySQL
   code .
 ```
 Cadastro - A senha adicionada no formulário é criptografada e enviada ao Banco de Dados.
