@@ -4,34 +4,34 @@
 
 <b>Linux</b>
 ```bash
-mkdir Flask_MySQL &&
-cd Flask_MySQL &&
-pip install virtualenv &&
-python -m venv venv &&
-cd venv &&
-cd bin &&
-source activate &&
-cd .. && cd .. &&
-git clone https://github.com/GiovanniMatos/Flask_MySQL.git &&
-cd Flask_MySQL &&
-pip install Flask python-dotenv pymysql folium cryptocode
+  mkdir Flask_MySQL &&
+  cd Flask_MySQL &&
+  pip install virtualenv &&
+  python -m venv venv &&
+  cd venv &&
+  cd bin &&
+  source activate &&
+  cd .. && cd .. &&
+  git clone https://github.com/GiovanniMatos/Flask_MySQL.git &&
+  cd Flask_MySQL &&
+  pip install Flask python-dotenv pymysql folium cryptocode
 ```
 <b>Windows</b>
 ```bash
-mkdir Flask_MySQL
-cd Flask_MySQL
-pip install virtualenv 
-python -m venv venv 
-cd venv 
-Scripts\activate.bat
-cd ..
-git clone https://github.com/GiovanniMatos/Flask_MySQL.git 
-cd Flask_MySQL 
-pip install Flask python-dotenv pymysql folium cryptocode
+  mkdir Flask_MySQL
+  cd Flask_MySQL
+  pip install virtualenv 
+  python -m venv venv 
+  cd venv 
+  Scripts\activate.bat
+  cd ..
+  git clone https://github.com/GiovanniMatos/Flask_MySQL.git 
+  cd Flask_MySQL 
+  pip install Flask python-dotenv pymysql folium cryptocode
 ```
 <b>VSCode</b><br>
 ```bash
-code .
+  code .
 ```
 Cadastro - A senha adicionada no formulário é criptografada e enviada ao Banco de Dados.
 
