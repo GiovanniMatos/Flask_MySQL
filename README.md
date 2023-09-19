@@ -4,19 +4,18 @@
 
 <b>Linux</b>
 ```bash
+  sudo apt install -y python3 python3-pip python3.10-venv
+```
+```bash
   git clone https://github.com/GiovanniMatos/Flask_MySQL.git && cd Flask_MySQL && pip3 install virtualenv && python3 -m venv venv && source venv/bin/activate && cd .. && pip3 install Flask python-dotenv pymysql folium cryptocode
 ```
 <b>Windows</b>
 ```bash
-  mkdir Flask_MySQL
+  git clone https://github.com/GiovanniMatos/Flask_MySQL.git
   cd Flask_MySQL
-  pip install virtualenv 
-  python -m venv venv 
-  cd venv 
-  Scripts\activate.bat
-  cd ..
-  git clone https://github.com/GiovanniMatos/Flask_MySQL.git 
-  cd Flask_MySQL 
+  pip install virtualenv
+  python -m venv venv
+  venv\Scripts\activate
   pip install Flask python-dotenv pymysql folium cryptocode
 ```
 <b>VSCode</b><br>
