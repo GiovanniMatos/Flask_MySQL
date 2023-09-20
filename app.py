@@ -99,12 +99,6 @@ def login():
 
     return render_template('login.html')   
 
-# Rota principal para exibir o mapa
-@app.route('/mapa')
-def mapa():
-    return redirect(url_for('login'))
-    #return render_template('mapa.html')
-
 # Rota para lidar com o upload do arquivo JSON e adicionar marcadores ao mapa
 @app.route('/add_data', methods=['GET','POST'])
 def add_data():
