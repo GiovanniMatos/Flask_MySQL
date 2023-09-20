@@ -92,7 +92,7 @@ def login():
         if user and cryptocode.decrypt(user['senha'], SECRET_KEY) == senha:
             print(f"[+] Usuário Logado: {nome}")
             print(user)
-            return redirect(url_for('add_data'))
+            return render_template('mapa.html', nome=nome)
         else: 
             variavel = "Credenciais inválidas"
             return render_template('login.html', variavel=variavel)

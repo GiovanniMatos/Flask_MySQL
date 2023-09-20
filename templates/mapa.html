@@ -24,6 +24,9 @@
     <meta name="viewport" content="width=device-width,
         initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <style>
+        body {
+            text-align: center;
+        }
         input {
             margin-left: 45%;
             height: 60px;
@@ -44,6 +47,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.2/leaflet.draw.css"/>
 </head>
 <body>
+    <h1>Usuário: {{nome}}</h1>
     <div class="folium-map" id="map_9bb53bf83c507dbf15a0f6a1bb9f4659" ></div>
     <input type="file" id="fileInput" accept=".json">
 </body>
