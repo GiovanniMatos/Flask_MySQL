@@ -27,31 +27,25 @@
         body {
             text-align: center;
         }
-        #txtBusca {
-            position: absolute;
-            margin-left: 37%;
-            height: 30px;
-            border-radius: 5px;
-            border-color: black;
-            margin-bottom: 5px;
-        }
-        #delete-all {
-            margin-left: 80%;
-            height: 30px;
-            border-radius: 5px;
-            border-color: black;
-            margin-bottom: 5px;
-        }
-        input {
-            margin-left: 45%;
-            height: 60px;
-        }
         #map_9bb53bf83c507dbf15a0f6a1bb9f4659 {
             position: relative;
             width: 100.0%;
             height: 80%;
             left: 0.0%;
             top: 0.0%;
+        }
+        header {
+            justify-content: space-between;
+            background-color: rgb(179, 194, 189);
+            padding-bottom: 5px;
+            padding-top: 2px;
+        }
+        ul {
+            display: flex;
+        }
+        ul li {
+            margin-left: 15%;
+            list-style: none;
         }
         .leaflet-container { font-size: 1rem; }
         .leaflet-draw-pane {
@@ -86,10 +80,22 @@
 </head>
 <body>
     <h1>Usuário: {{nome}}</h1>
-    <input type="text" id="txtBusca" placeholder="Buscar coordenada"/>
-    <button id="delete-all">Apagar Tudo</button>
-    <div class="folium-map" id="map_9bb53bf83c507dbf15a0f6a1bb9f4659" ></div>
-    <input type="file" id="fileInput" accept=".json">
+    <header>
+        <ul>
+            <li>
+                <input type="file" id="fileInput" accept=".json">
+            </li>
+            <li>
+                <input type="text" id="txtBusca" placeholder="Buscar coordenada"/>
+            </li>
+            <li>
+                <button id="delete-all">Apagar Tudo</button>
+            </li>
+        </ul>
+    </header>
+
+        <div class="folium-map" id="map_9bb53bf83c507dbf15a0f6a1bb9f4659" ></div>
+    
 </body>
 <script>
     var map_9bb53bf83c507dbf15a0f6a1bb9f4659 = L.map(

@@ -3,7 +3,7 @@ import time
 import os
 print("------- Brute Force teste -------")
 usuario = input("Usuário: ")
-wordlist = open(".\wordlist.txt", "r").readlines()
+wordlist = open("wordlist.txt", "r").readlines()
 wordlist = [x.replace("\n", "") for x in wordlist]
 
 host = "http://127.0.0.1:5000/login"
@@ -18,7 +18,7 @@ for senha in wordlist:
     print(f"Testando - {senha}")
     
     response = requests.post("http://127.0.0.1:5000/login", data=login_data).text
-    if "Adicionar layer" not in response:
+    if "Usuário:" not in response:
         os.system("clear || cls")
         print('Senha não encontrada \n')
     else: 
