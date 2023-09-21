@@ -1,48 +1,16 @@
 # pip install python-dotenv folium flask cryptocode
-from flask import Flask, render_template, request, url_for, redirect
+from flask import Flask, render_template, request, url_for, redirect, session
 import pymysql
 import folium
 from folium.plugins import MarkerCluster, Draw
 import json
 import os
 import cryptocode
+from mysql_cmd import insert, verificar, autenticar, cursor
 
 app = Flask(__name__)
 
-# Configurações do banco de dados
-db_config = {
-    'host': 'localhost',
-    'user': 'root',
-    'password': '',
-    'db': 'projeto_flask',
-    'cursorclass': pymysql.cursors.DictCursor
-}
-
-try:
-    connection = pymysql.connect(**db_config)
-    print("[+]------- CONECTADO -------[+]")
-except pymysql.Error as e:
-    print(f"Erro ao conectar ao banco de dados: {e}")
-
-# Criar um cursor
-cursor = connection.cursor()
-
-criar_tabela = """
-CREATE TABLE usuarios (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    nome VARCHAR(50) NOT NULL,
-    email VARCHAR(50) NOT NULL,
-    senha VARCHAR(250) NOT NULL
-);"""
-
-try:
-    cursor.execute(criar_tabela)
-    print("TABELA CRIADA")
-except pymysql.Error as e:
-    print(f"Tabela não foi criada -> {e}")
-    pass
-
-@app.route('/register', methods=['GET','POST'])    
+@app.route('/register', methods=['GET', 'POST'])
 def register():
     SECRET_KEY = os.getenv('SECRET_KEY')
     if request.method == 'POST':
@@ -51,30 +19,27 @@ def register():
         senha = request.form.get('password')
         senha_hash = cryptocode.encrypt(senha, SECRET_KEY)
         senha_criptografada = senha_hash
-        print("Usuário: ",nome)
-        print("Email: ",email)
-        print("Senha Criptografada: ",senha_criptografada)
+        print("Usuário: ", nome)
+        print("Email: ", email)
+        print("Senha Criptografada: ", senha_criptografada)
         senha_descriptografada = cryptocode.decrypt(senha_criptografada, SECRET_KEY)
-        print("Senha Descriptografada: ",senha_descriptografada)
+        print("Senha Descriptografada: ", senha_descriptografada)
 
-        # Verificar se o usuário já existe
-        verifica_query = "SELECT * FROM usuarios WHERE nome = %s OR email = %s"
-        cursor.execute(verifica_query, (nome, email))
-        usuario_existente = cursor.fetchone()
+        # Check if user exists in the database
+        usuario_existente = verificar(nome, email)
 
         if usuario_existente:
             variavel = "Usuário com o mesmo nome ou email já existe."
             return render_template('register.html', variavel=variavel)
         else:
+            # User does not exist, insert the data into the database
             variavel = "Usuário inserido com sucesso!"
-            insert_query = "INSERT INTO usuarios (nome, email, senha) VALUES (%s, %s, %s)"
-            data = (nome, email, senha_criptografada)
-            cursor.execute(insert_query, data)
-            connection.commit()
+            insert(nome, email, senha_criptografada)  # Insere usuário no banco de dados
             print('Usuário inserido com sucesso!')
             return render_template('register.html', variavel_P=variavel)
 
     return render_template('register.html')
+
 
 @app.route('/login', methods=['GET','POST'])    
 def login():
@@ -83,11 +48,7 @@ def login():
         nome = request.form.get("nome")
         senha = request.form.get("password")
 
-        conn = pymysql.connect(**db_config)
-        cursor = conn.cursor()
-        cursor.execute("SELECT * FROM usuarios WHERE nome = %s", (nome,))
-        user = cursor.fetchone()
-        conn.close()
+        user = autenticar(nome, senha) # mysql_cmd.py
 
         if user and cryptocode.decrypt(user['senha'], SECRET_KEY) == senha:
             print(f"[+] Usuário Logado: {nome}")
@@ -98,11 +59,6 @@ def login():
             return render_template('login.html', variavel=variavel)
 
     return render_template('login.html')   
-
-# Rota para lidar com o upload do arquivo JSON e adicionar marcadores ao mapa
-@app.route('/add_data', methods=['GET','POST'])
-def add_data():
-    return render_template('mapa.html')
 
 if __name__ == '__main__':
     app.run(debug=True)
