@@ -1,4 +1,4 @@
-# Flask_MySQL
+# Flask MySQL 🗃
 
 ## Instalação
 
