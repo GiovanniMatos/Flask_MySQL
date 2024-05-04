@@ -1,5 +1,8 @@
 # Flask MySQL 🗃
 
+> [!NOTE]
+> Este é apenas um protótipo do projeto original por questões de proteção.
+
 ## Instalação
 
 ### Linux
